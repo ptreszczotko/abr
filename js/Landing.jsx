@@ -1,37 +1,37 @@
 /* eslint-disable react/prop-types, jsx-a11y/anchor-is-valid */
 
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Container, Header as Headr } from 'semantic-ui-react';
+import Header from './Header';
+import Footer from './Footer';
+import preload from '../data.json';
+
 // import type { RouterHistory } from 'react-router-dom';
 import { setSearchTerm } from './actionCreators';
+import ShowCard from './ShowCard';
 
 class Landing extends Component {
-  goToSearch = (event) => {
+  goToSearch = event => {
     event.preventDefault();
     this.props.history.push('/search');
   };
   render() {
     return (
       <div className="landing">
-        <h1>svideo</h1>
-        <form onSubmit={this.goToSearch}>
-          <input
-            onChange={this.props.handleSearchTermChange}
-            value={this.props.searchTerm}
-            type="text"
-            placeholder="Search"
-          />
-        </form>
-        <Link to="/search">or Browse All</Link>
+        <Header />
+        <Container style={{ marginTop: '7em' }}>
+          <Headr as="h1">Here are some of our recent reviews...</Headr>
+          {preload && preload.shows.slice(0, 4).map(book => <ShowCard key={book.imdbID} {...book} />)}
+        </Container>
+        <Footer />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({ searchTerm: state.searchTerm });
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   handleSearchTermChange(event) {
     dispatch(setSearchTerm(event.target.value));
   }
