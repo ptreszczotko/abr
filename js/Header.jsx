@@ -12,6 +12,7 @@ const Header = props => (
         <Image size="mini" src="/public/img/logo.png" style={{ marginRight: '1.5em' }} />
         Awesome Book Reviews
       </Menu.Item>
+      {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
       <Menu.Item position="right">
         <Input onChange={props.handleSearchTermChange} value={props.searchTerm} icon={<Icon color="blue" name="search" inverted circular link />} placeholder="Search..." />
       </Menu.Item>
@@ -19,11 +20,10 @@ const Header = props => (
   </Menu>
 );
 
-Header.defaultProps = {
-  showSearch: false
-};
+const mapStateToProps = state => ({
+  searchTerm: state.searchTerm
+});
 
-const mapStateToProps = state => ({ searchTerm: state.searchTerm });
 const mapDispatchToProps = dispatch => ({
   handleSearchTermChange(event) {
     dispatch(setSearchTerm(event.target.value));

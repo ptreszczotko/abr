@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
@@ -13,7 +11,7 @@ const spin = keyframes`
 `;
 
 const Image = styled.img`
-  animation: ${spin} 4s infinite linear;
+  animation: ${spin} 2s infinite linear;
 `;
 
 const Spinner = () => <Image src="/public/img/loading.png" alt="loading indicator" />;

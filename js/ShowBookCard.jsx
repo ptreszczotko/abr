@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Card, Image, Icon } from 'semantic-ui-react';
 
 class ShowBookCard extends Component {
@@ -10,7 +11,7 @@ class ShowBookCard extends Component {
 
   render() {
     return (
-      <Card href={`/d/${this.props.id}`}>
+      <Card as={Link} to={`/d/${this.props.id}`}>
         <Image src={this.props.image} />
         <Card.Content>
           <Card.Header>{this.props.title}</Card.Header>

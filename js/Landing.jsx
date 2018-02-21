@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Header as Headr, Grid, Image, Segment, Divider } from 'semantic-ui-react';
+
 import Header from './Header';
 import Footer from './Footer';
 import preload from '../data.json';
@@ -25,7 +26,7 @@ class Landing extends Component {
           <Headr as="h1">Here are some of our recent reviews...</Headr>
           <Grid stackable>
             <Grid.Row columns={numberOfCards}>
-              {preload && preload.books.slice(0, numberOfCards).map(book => <Grid.Column><ShowBookCard key={book.id} {...book} /></Grid.Column>)}
+              {preload && preload.books.slice(0, numberOfCards).map(book => <Grid.Column key={book.id}><ShowBookCard key={book.id} {...book} /></Grid.Column>)}
             </Grid.Row>
           </Grid>
           <Divider />
@@ -53,6 +54,7 @@ class Landing extends Component {
           </Segment>
 
         </Container>
+
         <Footer />
       </div>
     );
