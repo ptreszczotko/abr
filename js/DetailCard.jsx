@@ -33,7 +33,7 @@ const DetailCard = props => (
 
 DetailCard.defaultProps = {
   imageLinks: {
-    small: '/public/white-image.png'
+    small: '/public/img/white-image.png'
   },
   categories: []
 };

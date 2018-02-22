@@ -37,7 +37,8 @@ class ShowBookCard extends Component {
 }
 
 ShowBookCard.defaultProps = {
-  likes: 0
+  likes: 0,
+  image: '/public/img/white-image.png'
 };
 
 export default ShowBookCard;

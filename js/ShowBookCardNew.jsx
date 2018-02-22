@@ -27,7 +27,7 @@ ShowBookCardNew.defaultProps = {
   subtitle: '',
   description: 'No description provided.',
   imageLinks: {
-    thumbnail: '/public/white-image.png'
+    thumbnail: '/public/img/white-image.png'
   },
 
   textSnippet: 'No description provided.'
