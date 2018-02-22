@@ -13,7 +13,7 @@ const DetailCard = props => (
     <Grid>
       <Grid.Row>
         <Grid.Column width={12}>
-          <div dangerouslySetInnerHTML={createMarkup(props.volumeInfo.description)} />
+          <div style={{ fontSize: '1.1em' }} dangerouslySetInnerHTML={createMarkup(props.volumeInfo.description)} />
         </Grid.Column>
         <Grid.Column width={4}>
           <Image src={props.volumeInfo.imageLinks.small} />
