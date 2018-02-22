@@ -1,19 +1,15 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import { Container, Segment, Dimmer, Loader } from 'semantic-ui-react';
 
-const spin = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
+const Spinner = () => (
+  <Container style={{ marginTop: '7em' }}>
+    <Segment basic>
+      <Dimmer active inverted>
+        <Loader size="large">Loading...</Loader>
+      </Dimmer>
 
-const Image = styled.img`
-  animation: ${spin} 2s infinite linear;
-`;
-
-const Spinner = () => <Image src="/public/img/loading.png" alt="loading indicator" />;
+    </Segment>
+  </Container>
+);
 
 export default Spinner;
