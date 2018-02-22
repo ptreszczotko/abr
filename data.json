@@ -25,27 +25,27 @@
 
         },
         {
-            "title": "1984",
-            "subtitle": "",
-            "publishedDate": "2016",
-            "description": "1984 is a dystopian novel by English author George Orwell published in 1949. The novel is set in Airstrip One, a world of perpetual war, omnipresent government surveillance, and public manipulation.",
-            "image": "https://books.google.com/books/content?id=VO8nDwAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE7086QF_ywxp48ZVZGzRkBLbm04VqRIftEMjCg0MSr0ArsRwdhqPJdxxjJ4H1VMl3RtKhQ6pHnTvOeFPCfWTOgBfJn6Fs-f0sgfG23qg20IF0KhPW1C9I1OZD4RqHhCEqJYmhRYT&source=gbs_api",
-            "publisher": "Enrich Culture Group Limited",
+            "title": "Fire and Fury",
+            "subtitle": "Inside the Trump White House",
+            "publishedDate": "2018",
+            "description": "#1 New York Times Bestseller With extraordinary access to the West Wing, Michael Wolff reveals what happened behind-the-scenes in the first nine months of the most controversial presidency of our time in Fire and Fury: Inside the Trump ...",
+            "image": "https://books.google.com/books/content?id=E3M-DwAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE72RJymaRl586_dYh-KyYAcrYt-oxHUZ2KeuQC56iuy3MLPSJVR87muPfjcJZ3NOyKB37cXVSWduPa3QfPwCpMyjT201ddml-gShENcqnJdDCX2XubKG1BZN44rs937r7k7IV4m7&source=gbs_api",
+            "publisher": "Henry Holt and Company",
             "reviewed": "matthew",
             "likes": 450,
-            "id": "VO8nDwAAQBAJ"
+            "id": "E3M-DwAAQBAJ"
 
         },
         {
-            "title": "Winnie the Pooh",
-            "subtitle": "",
-            "publishedDate": "2006",
-            "description": "This book presents three tales of Pooh’s adventures with his friends — Piglet, Tigger, Eeyore, Rabbit, Owl, Kanga, Roo, and of course, Christopher Robin, who is always around to help save the day.",
-            "image": "https://books.google.com/books/content?id=b-TnabxiYxkC&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE73iUbCSLkh2odrwoXWhfyeCxpxMtt89RbtrGx8uVJTav_RjDG4MjsOTxZLUZYzb3SbClDNnHcisdfYOniX09QFLoXpjtxWL2dfsX8ToImByrZVmtf93ylaoXKM6awVfgcmGsjiZ&source=gbs_api",
-            "publisher": "Enrich Culture Group Limited",
+            "title": "Red Sparrow",
+            "subtitle": "A Novel",
+            "publishedDate": "2014",
+            "description": "Drafted against her will to serve the regime of Vladimir Putin as an intelligence seductress, Dominika Egorova engages in a charged effort of deception and tradecraft with first-tour CIA officer Nathaniel Nash before a forbidden attraction threatens their careers.",
+            "image": "https://books.google.com/books/content?id=l-lnAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE726GuWNAijLjh5rXPln0vmd_gTecOP1ghH_yU62v9xVZYS5EG6mBjRxUmqESW666cnTUawP0ben8DtgjG411NBDjckRYmAjl6xA_Ibib6akvDrVRbZnOb57WwYe6yDjEVGCEv3R&source=gbs_api",
+            "publisher": "Simon and Schuster",
             "reviewed": "matthew",
             "likes": 234,
-            "id": "b-TnabxiYxkC"
+            "id": "l-lnAwAAQBAJ"
 
         }
     ]

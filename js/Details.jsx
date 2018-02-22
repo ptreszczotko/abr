@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types,no-console,no-nested-ternary */
 import React from 'react';
-import { Container, Menu, Segment } from 'semantic-ui-react';
+import { Container, Menu, Segment, Header as Headr, Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 // import fetchBooks from './actionCreators';
 import { fetchBooks } from './actionCreators';
@@ -35,6 +35,34 @@ class Details extends React.Component {
     const { isFetching, activeBook } = this.props;
     const isEmpty = activeBook.length === 0;
 
+    let detailSegment;
+    if (this.state.activeItem === 'Details') {
+      detailSegment = (
+        <Segment loading={isFetching} basic>
+          {isEmpty ? (isFetching ? <h2>Loading...</h2> : '') : <DetailCard {...activeBook} />}
+        </Segment>
+      );
+    } else if (this.state.activeItem === 'Reviews') {
+      detailSegment = (
+        <Segment basic>
+          <Headr as="h2">Placeholder for the custom reviews. They will be fetched from our CMS via an API call</Headr>
+          <Image src="/public/img/media-paragraph.png" /><br />
+          <Image src="/public/img/paragraph.png" /><br />
+          <Image src="/public/img/paragraph.png" /><br />
+        </Segment>
+      );
+    } else if (this.state.activeItem === 'Where to buy?') {
+      detailSegment = (
+        <Segment basic>
+          <Headr as="h2">Your can purchase this book at:</Headr>
+          <ul>
+            <li>Amazon</li>
+            <li>Google Store</li>
+          </ul>
+        </Segment>
+      );
+    }
+
     return (
       <div>
         <Header />
@@ -47,11 +75,7 @@ class Details extends React.Component {
             <Menu.Item color="green" name="Where to buy?" active={this.state.activeItem === 'Where to buy?'} onClick={this.handleItemClick} />
           </Menu>
 
-          <Segment loading={isFetching} basic>
-
-            {isEmpty ? (isFetching ? <h2>Loading...</h2> : '') : <DetailCard {...activeBook} />}
-
-          </Segment>
+          {detailSegment}
         </Container>
         <Footer />
       </div>

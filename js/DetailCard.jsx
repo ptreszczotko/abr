@@ -20,7 +20,10 @@ const DetailCard = props => (
         </Grid.Column>
       </Grid.Row>
     </Grid>
-    {props.volumeInfo.categories.map(category => <Label key={category} color="blue"> {category}</Label>)}
+    <div>
+      <br />
+      {props.volumeInfo.categories.map(category => <Label key={category} color="blue"> {category}</Label>)}
+    </div>
   </div>
 );
 
