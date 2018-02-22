@@ -1,7 +1,9 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/prop-types,react/no-danger */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Image } from 'semantic-ui-react';
+
+const createMarkup = val => ({ __html: val });
 
 const ShowBookCardNew = props => (
   <div>
@@ -10,9 +12,12 @@ const ShowBookCardNew = props => (
       <Card.Content>
         <Card.Header>{props.title}</Card.Header>
         <Card.Meta>{props.subtitle}</Card.Meta>
-        <Card.Description>{props.textSnippet.substring(0, 100)}</Card.Description>
+
+        <Card.Description><div dangerouslySetInnerHTML={createMarkup(props.textSnippet)} /></Card.Description>
       </Card.Content>
-      <Card.Content extra />
+      <Card.Content extra>
+        {props.authors && `Published by: ${props.authors.join(', ')}`}
+      </Card.Content>
     </Card>
   </div>
 );

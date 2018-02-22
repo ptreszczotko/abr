@@ -10,7 +10,7 @@ const DetailCard = props => (
       <Header.Subheader>{props.subtitle}</Header.Subheader>
     </Header>
 
-    <Grid>
+    <Grid stackable>
       <Grid.Row>
         <Grid.Column width={12}>
           <div style={{ fontSize: '1.1em' }} dangerouslySetInnerHTML={createMarkup(props.description)} />

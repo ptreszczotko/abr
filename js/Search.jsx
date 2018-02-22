@@ -32,7 +32,7 @@ class Search extends React.Component {
           <Segment loading={this.props.isFetching} basic>
             <Headr as="h2">Search results for: {this.props.searchTerm}</Headr>
             {isEmpty
-              ? isFetching ? <h2>Loading...</h2> : <Container>Loading Details...</Container>
+              ? isFetching ? <h2>Loading...</h2> : <Container>Sorry, we could not find any results matching your query. Please try again.</Container>
               : <Grid stackable>
                   <Grid.Row columns={5}>
                     {books.length && books.map(book => <Grid.Column key={book.id}><ShowBookCardNew id={book.id} {...book.volumeInfo} {...book.searchInfo} /></Grid.Column>)}
