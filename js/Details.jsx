@@ -4,7 +4,7 @@ import { Container, Menu, Segment, Header as Headr, Image, Label } from 'semanti
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import fetchBooks from './actionCreators';
-import { fetchBooks } from './actionCreators';
+import { fetchOneBook } from './actionCreators';
 import DetailCard from './DetailCard';
 
 import Header from './Header';
@@ -24,11 +24,6 @@ class Details extends React.Component {
     // console.log('this.props:', this.state);
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log('nextProps:', nextProps);
-    // this will dispatch async call to get details from the API.
-    // this.props.callBack(this.props.match.params.id);
-  }
   handleItemClick(event, { name }) {
     this.setState({ activeItem: name });
   }
@@ -40,7 +35,7 @@ class Details extends React.Component {
     if (this.state.activeItem === 'Details') {
       detailSegment = (
         <Segment loading={isFetching} basic>
-          {isEmpty ? (isFetching ? <h2>Loading...</h2> : <Container>Loading Details...</Container>) : <DetailCard {...activeBook} />}
+          {isEmpty ? (isFetching ? <h2>Loading...</h2> : <Container>Loading Details...</Container>) : <DetailCard {...activeBook.volumeInfo} />}
         </Segment>
       );
     } else if (this.state.activeItem === 'Reviews') {
@@ -90,7 +85,7 @@ const mapStateToProps = state => ({ searchTerm: state.searchTerm, isFetching: st
 
 const mapDispatchToProps = dispatch => ({
   callBack(id) {
-    dispatch(fetchBooks(id));
+    dispatch(fetchOneBook(id));
   }
 });
 

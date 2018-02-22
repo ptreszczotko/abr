@@ -17,6 +17,7 @@ class Landing extends Component {
     event.preventDefault();
     this.props.history.push('/search');
   };
+
   render() {
     const numberOfCards = 4;
     return (

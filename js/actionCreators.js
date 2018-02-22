@@ -20,9 +20,25 @@ export const receivePosts = json => ({
   }
 });
 
-export const fetchBooks = id => dispatch => {
+export const receiveBooks = json => ({
+  type: RECEIVE_BOOKS,
+  payload: {
+    books: json.items,
+    receivedAt: Date.now()
+  }
+});
+
+export const fetchOneBook = id => dispatch => {
   dispatch(requestBooks(id));
   return fetch(`https://www.googleapis.com/books/v1/volumes/${id}`)
     .then(response => response.json())
     .then(json => dispatch(receivePosts(json)));
 };
+
+export const fetchBooks = keyword => dispatch => {
+  dispatch(requestBooks(keyword));
+  return fetch(`https://www.googleapis.com/books/v1/volumes?q=${keyword}`)
+    .then(response => response.json())
+    .then(json => dispatch(receiveBooks(json)));
+};
+
