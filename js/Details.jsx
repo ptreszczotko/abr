@@ -65,7 +65,7 @@ class Details extends React.Component {
       <div>
         <Header />
 
-        <Container style={{ marginTop: '7em' }}>
+        <Container style={{ marginTop: '8em' }}>
 
           <Menu pointing secondary>
             <Menu.Item name="Details" active={this.state.activeItem === 'Details'} onClick={this.handleItemClick} />

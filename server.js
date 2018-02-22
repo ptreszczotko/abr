@@ -23,6 +23,7 @@ const template = _.template(baseTemplate);
 
 const server = express();
 
+
 const compiler = webpack(config);
 server.use(webpackDevMiddleware(compiler,{
     publicPath: config.output.publicPath
@@ -30,11 +31,12 @@ server.use(webpackDevMiddleware(compiler,{
 
 server.use(webpackHotMiddleware(compiler));
 
+
 server.use(compression());
 server.use('/public', express.static('./public'));
 
 server.use((req, res) => {
-  console.log('request:',req.url);
+  console.log('url',req.url);
   const context = {};
   const body = ReactDOMServer.renderToString(React.createElement(StaticRouter, { location: req.url, context }, React.createElement(App)));
 

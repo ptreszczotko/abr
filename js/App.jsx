@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import store from './store';
 import AsyncRoute from './AsyncRoute';
 import preload from '../data.json';
-import Details from './Details';
 
 const FourOhFour = () => <h1>404</h1>;
 
@@ -14,9 +13,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={props => <AsyncRoute props={props} loadingPromise={import('./Landing')} />} />
         <Route path="/search" component={props => <AsyncRoute props={Object.assign({ shows: preload.shows }, props)} loadingPromise={import('./Search')} />} />
-        <Route path="/d/:id" component={Details} />
-
-        <Route path="/xyz" component={props => <AsyncRoute props={props} loadingPromise={import('./Bar')} />} />
+        <Route path="/d/:id" component={props => <AsyncRoute props={props} loadingPromise={import('./Details')} />} />
         <Route component={FourOhFour} />
       </Switch>
     </div>

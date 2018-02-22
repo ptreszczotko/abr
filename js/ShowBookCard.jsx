@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Image, Icon } from 'semantic-ui-react';
+import { Card, Image, Icon, Grid, Label } from 'semantic-ui-react';
 
 class ShowBookCard extends Component {
   shouldComponentUpdate() {
@@ -19,11 +19,17 @@ class ShowBookCard extends Component {
           <Card.Description>{this.props.description}</Card.Description>
         </Card.Content>
         <Card.Content extra>
-
-          <Icon name="heart" />
-          {this.props.likes} Likes
-
-          <Image avatar floated="right" size="mini" src={`/public/avatars/${this.props.reviewed}.png`} />
+          <Grid columns={2}>
+            <Grid.Column>
+              <Icon name="heart" />{this.props.likes} Likes
+            </Grid.Column>
+            <Grid.Column fluid>
+              <Label image>
+                <Image avatar size="mini" src={`/public/avatars/${this.props.reviewed}.png`} />
+                by {this.props.reviewed}
+              </Label>
+            </Grid.Column>
+          </Grid>
         </Card.Content>
       </Card>
     );

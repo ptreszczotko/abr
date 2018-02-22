@@ -23,8 +23,8 @@ class Landing extends Component {
     return (
       <div className="landing">
         <Header />
-        <Container style={{ marginTop: '7em' }}>
-          <Headr as="h1">Here are some of our recent reviews...</Headr>
+        <Container style={{ marginTop: '8em' }}>
+          <Headr as="h3">Here are some of our recent reviews...</Headr>
           <Grid stackable>
             <Grid.Row columns={numberOfCards}>
               {preload && preload.books.slice(0, numberOfCards).map(book => <Grid.Column key={book.id}><ShowBookCard key={book.id} {...book} /></Grid.Column>)}

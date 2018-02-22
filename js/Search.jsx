@@ -10,15 +10,12 @@ import ShowBookCardNew from './ShowBookCardNew';
 
 class Search extends React.Component {
   componentDidMount() {
-    console.log('component did MOUNT!', this.props);
-
     this.props.callBack(this.props.searchTerm);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.searchTerm !== this.props.searchTerm) {
       // event.preventDefault();
-      console.log('search changed!', this.nextProps);
     }
   }
 
@@ -28,7 +25,7 @@ class Search extends React.Component {
     return (
       <div>
         <Header />
-        <Container style={{ marginTop: '7em' }}>
+        <Container style={{ marginTop: '8em' }}>
           <Segment loading={this.props.isFetching} basic>
             <Headr as="h2">Search results for: {this.props.searchTerm}</Headr>
             {isEmpty

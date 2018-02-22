@@ -23,7 +23,9 @@ const DetailCard = props => (
 
     <Grid stackable>
       <Grid.Row divided>
-        {props.categories.map(category => <Label key={category} color="blue"> {category}</Label>)}
+        <Label.Group>
+          {props.categories.map(category => <Label key={category} color="blue"> {category}</Label>)}
+        </Label.Group>
       </Grid.Row>
     </Grid>
   </div>

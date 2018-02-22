@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { Menu, Image, Container, Input, Icon } from 'semantic-ui-react';
+import { Menu, Image, Container, Input, Icon, Header as Headr } from 'semantic-ui-react';
 import { DebounceInput } from 'react-debounce-input';
 import { withRouter } from 'react-router-dom';
 
@@ -11,20 +11,17 @@ import { setSearchTerm } from './actionCreators';
 class Header extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.searchTerm !== this.props.searchTerm) {
-      console.log('search changed!', nextProps);
-      // event.preventDefault();
       this.props.history.push('/search');
     }
   }
   render() {
     return (
-      <Menu fixed="top" inverted color="blue">
+      <Menu borderless stackable fixed="top" inverted color="blue">
         <Container>
           <Menu.Item as="a" header href="/">
             <Image size="mini" src="/public/img/logo.png" style={{ marginRight: '1.5em' }} />
-            Awesome Book Reviews
+            <Headr floated="left" as="h2">Awesome Book Reviews</Headr>
           </Menu.Item>
-          {/* <pre>{JSON.stringify(this.props, null, 2)}</pre> */}
           <Menu.Item position="right">
             <DebounceInput
               element={Input}
