@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types,no-nested-ternary,no-console */
+/* eslint-disable react/prop-types,no-nested-ternary,no-console,no-unused-vars */
 
 import React from 'react';
 import { connect } from 'react-redux';
@@ -10,17 +10,15 @@ import ShowBookCardNew from './ShowBookCardNew';
 
 class Search extends React.Component {
   componentDidMount() {
-    console.log('component did MOUNT!');
+    console.log('component did MOUNT!', this.props);
+
     this.props.callBack(this.props.searchTerm);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.searchTerm !== this.props.searchTerm) {
-      console.log('search changed!', this.props);
       // event.preventDefault();
-      // this.props.history.push('/search');
-
-      // this.props.callBack(nextProps.searchTerm);
+      console.log('search changed!', this.nextProps);
     }
   }
 
@@ -31,13 +29,13 @@ class Search extends React.Component {
       <div>
         <Header />
         <Container style={{ marginTop: '7em' }}>
-          <Segment loading={isFetching} basic>
+          <Segment loading={this.props.isFetching} basic>
             <Headr as="h2">Search results for: {this.props.searchTerm}</Headr>
             {isEmpty
               ? isFetching ? <h2>Loading...</h2> : <Container>Loading Details...</Container>
               : <Grid stackable>
                   <Grid.Row columns={5}>
-                    {books && books.map(book => <Grid.Column key={book.id}><ShowBookCardNew id={book.id} {...book.volumeInfo} {...book.searchInfo} /></Grid.Column>)}
+                    {books.length && books.map(book => <Grid.Column key={book.id}><ShowBookCardNew id={book.id} {...book.volumeInfo} {...book.searchInfo} /></Grid.Column>)}
                   </Grid.Row>
                 </Grid>}
           </Segment>
@@ -49,14 +47,19 @@ class Search extends React.Component {
   }
 }
 
+Search.defaultProps = {
+  searchTerm: '',
+  books: []
+};
+
 const mapStateToProps = state => ({
   searchTerm: state.searchTerm,
   books: state.books.books,
-  isFetching: state.isFetching
+  isFetching: state.books.isFetching
 });
 
 const mapDispatchToProps = dispatch => ({
-  callBack(keyword) {
+  callBack(keyword = 'mike') {
     dispatch(fetchBooks(keyword));
   }
 });

@@ -1,3 +1,4 @@
+/* eslint-disable no-console,no-param-reassign */
 import { SET_SEARCH_TERM, ADD_API_DATA, REQUEST_BOOKS, RECEIVE_BOOKS } from './actions';
 
 export function setSearchTerm(searchTerm) {
@@ -35,10 +36,10 @@ export const fetchOneBook = id => dispatch => {
     .then(json => dispatch(receivePosts(json)));
 };
 
-export const fetchBooks = keyword => dispatch => {
+export const fetchBooks = (keyword,results=40) => dispatch => {
+  if(!keyword) { keyword='*';}
   dispatch(requestBooks(keyword));
-  return fetch(`https://www.googleapis.com/books/v1/volumes?q=${keyword}`)
+  return fetch(`https://www.googleapis.com/books/v1/volumes?q=${keyword}&maxResults=${results}&orderBy=newest`)
     .then(response => response.json())
     .then(json => dispatch(receiveBooks(json)));
 };
-

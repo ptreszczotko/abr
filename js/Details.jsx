@@ -81,7 +81,7 @@ class Details extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ searchTerm: state.searchTerm, isFetching: state.isFetching, activeBook: state.books.books });
+const mapStateToProps = state => ({ searchTerm: state.searchTerm, isFetching: state.books.isFetching, activeBook: state.books.books });
 
 const mapDispatchToProps = dispatch => ({
   callBack(id) {
