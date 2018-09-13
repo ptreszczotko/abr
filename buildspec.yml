@@ -1,0 +1,25 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - yarn install --prod
+  build:
+    commands:
+      - aws cloudformation package
+          --template-file ./src/main/resources/sam.yml
+          --s3-bucket com.getbright.packages
+          --s3-prefix bright-service
+          --output-template-file sam-packaged.yml
+      - echo "{\"Parameters\":{\"Env\":\"$ENV\"}}" > sam-packaged-config.json
+      - echo "{\"Parameters\":{\"FunctionStack\":\"$STACK_NAME-deployed\"}}" > appsync-config.json
+      - echo "{\"Parameters\":{\"ParentStack\":\"$STACK_NAME\"}}" > custom-config.json
+artifacts:
+  files:
+    - ./src/main/resources/custom.yml
+    - custom-config.json
+    - ./src/main/resources/sam.yml
+    - appsync-config.json
+    - ./src/main/resources/appsync.yml
+    - sam-packaged-config.json
+    - sam-packaged.yml
+  discard-paths: yes
